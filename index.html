@@ -3,11 +3,15 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Dolci | Fábrica de Galletas</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <title>Dolci | Fábrica de galletas</title>
 </head>
 
 <body>
@@ -15,38 +19,57 @@
   <!-- ENCABEZADO PRINCIPAL -->
   <header class="hero">
 
-    <div class="side">
-      🍦
+    <!-- Decoración izquierda -->
+    <div class="hero-side left-side">
+      <div class="cone-image">
+        🍦
+      </div>
     </div>
 
-    <div class="seal">
-      <small>FÁBRICA DE GALLETAS</small>
+    <!-- Contenido central -->
+    <div class="hero-center">
 
-      <div class="cones">
-        🍦 🍦 🍦
+      <div class="logo">
+        <div class="logo-top">
+          FÁBRICA DE GALLETAS
+        </div>
+
+        <div class="logo-icecream">
+          🍦 🍦 🍦
+        </div>
+
+        <div class="logo-name">
+          DOLCI
+        </div>
+
+        <div class="logo-bottom">
+          SUBA CAÑIZA
+        </div>
       </div>
 
-      <h1>DOLCI</h1>
-
-      <small>SUBA CAÑIZA</small>
-    </div>
-
-    <div class="heroText">
       <h1>Dolci</h1>
 
-      <p>
+      <p class="subtitle">
         Conos, galletas y más<br>
         para tus mejores momentos
       </p>
+
     </div>
 
-    <div class="phrase">
-      El sabor<br>
-      que hace<br>
-      tus momentos<br>
-      más especiales
-      <br>
-      ♡
+    <!-- Frase derecha -->
+    <div class="hero-side right-side">
+
+      <p class="slogan">
+        El sabor<br>
+        que hace<br>
+        tus momentos<br>
+        más especiales
+      </p>
+
+      <div class="heart">
+        ♡
+      </div>
+
     </div>
 
   </header>
@@ -55,24 +78,36 @@
   <!-- BENEFICIOS -->
   <section class="benefits">
 
-    <div>
-      🚚
-      <p>Pedidos<br>rápidos</p>
+    <div class="benefit">
+      <div class="benefit-icon">🚚</div>
+      <p>
+        Pedidos<br>
+        rápidos
+      </p>
     </div>
 
-    <div>
-      🛡️
-      <p>Productos<br>de calidad</p>
+    <div class="benefit">
+      <div class="benefit-icon">🛡️</div>
+      <p>
+        Productos<br>
+        de calidad
+      </p>
     </div>
 
-    <div>
-      ♡
-      <p>Hechos<br>con pasión</p>
+    <div class="benefit">
+      <div class="benefit-icon">♡</div>
+      <p>
+        Hechos<br>
+        con pasión
+      </p>
     </div>
 
-    <div>
-      👥
-      <p>Atención<br>personalizada</p>
+    <div class="benefit">
+      <div class="benefit-icon">👥</div>
+      <p>
+        Atención<br>
+        personalizada
+      </p>
     </div>
 
   </section>
@@ -81,154 +116,184 @@
   <!-- CATEGORÍAS -->
   <main>
 
-    <h2>Nuestras categorías</h2>
+    <section class="categories-section">
 
-    <p class="subtitle">
-      Selecciona una categoría para ver nuestros productos
-    </p>
+      <h2>Nuestras categorías</h2>
+
+      <p class="categories-subtitle">
+        Selecciona una categoría para ver nuestros productos
+      </p>
 
 
-    <div class="categories" id="categories">
+      <div class="categories">
 
-      <button class="category" data-category="Conos">
-        <div class="categoryImage">🍦</div>
-        <span>Conos</span>
+        <button class="category-btn" data-category="conos">
+          <span class="category-icon">🍦</span>
+          <span>Conos</span>
+        </button>
+
+
+        <button class="category-btn" data-category="galletas">
+          <span class="category-icon">🧇</span>
+          <span>Galletas</span>
+        </button>
+
+
+        <button class="category-btn" data-category="canastas">
+          <span class="category-icon">🧇</span>
+          <span>Canastas</span>
+        </button>
+
+
+        <button class="category-btn" data-category="obleas">
+          <span class="category-icon">🥞</span>
+          <span>Obleas</span>
+        </button>
+
+
+        <button class="category-btn" data-category="barquillos">
+          <span class="category-icon">🍪</span>
+          <span>Barquillos</span>
+        </button>
+
+      </div>
+
+
+      <button class="order-button" id="orderButton">
+        🛒 HACER UN PEDIDO →
       </button>
 
-      <button class="category" data-category="Galletas">
-        <div class="categoryImage">🧇</div>
-        <span>Galletas</span>
-      </button>
-
-      <button class="category" data-category="Canastas">
-        <div class="categoryImage">🧇</div>
-        <span>Canastas</span>
-      </button>
-
-      <button class="category" data-category="Obleas">
-        <div class="categoryImage">🥞</div>
-        <span>Obleas</span>
-      </button>
-
-      <button class="category" data-category="Barquillos">
-        <div class="categoryImage">🍪</div>
-        <span>Barquillos</span>
-      </button>
-
-    </div>
+    </section>
 
 
-    <!-- BOTÓN PEDIDO -->
-    <button id="orderButton" class="orderButton">
-      🛒 HACER UN PEDIDO →
-    </button>
+    <!-- INFORMACIÓN -->
+    <section class="info-section">
+
+
+      <div class="info-card whatsapp-card">
+
+        <div class="info-icon whatsapp-icon"></div>
+
+        <div>
+          <p>También puedes hacer tu pedido</p>
+
+          <p class="info-main">
+            por WhatsApp
+          </p>
+
+          <strong>
+            315 545 8751
+          </strong>
+        </div>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <div class="info-symbol">
+          ◷
+        </div>
+
+        <div>
+          <h3>Horario de atención</h3>
+
+          <p>
+            Lunes a Sábado
+          </p>
+
+          <p>
+            8:00 a. m. - 6:00 p. m.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="info-card">
+
+        <div class="info-symbol">
+          📍
+        </div>
+
+        <div>
+          <h3>Suba Cañiza</h3>
+
+          <p>
+            Calle 130F #124-58
+          </p>
+
+          <p>
+            Bogotá, Colombia
+          </p>
+        </div>
+
+      </div>
+
+
+    </section>
 
   </main>
-
-
-  <!-- INFORMACIÓN -->
-  <section class="info">
-
-    <div>
-      🟢
-      <p>
-        También puedes hacer tu pedido<br>
-        por WhatsApp<br>
-        <b>315 545 8751</b>
-      </p>
-    </div>
-
-
-    <div>
-      ◷
-      <p>
-        <b>Horario de atención</b><br>
-        Lunes a Sábado<br>
-        8:00 a. m. - 6:00 p. m.
-      </p>
-    </div>
-
-
-    <div>
-      📍
-      <p>
-        <b>Suba Cañiza</b><br>
-        Calle 130F #124-58<br>
-        Bogotá, Colombia
-      </p>
-    </div>
-
-  </section>
-
-
-  <!-- MODAL PRODUCTOS -->
-  <div id="modal" class="modal hidden">
-
-    <div class="modalContent">
-
-      <button class="close" data-close="modal">
-        ×
-      </button>
-
-      <h2 id="title">
-        Productos
-      </h2>
-
-      <div id="products"></div>
-
-    </div>
-
-  </div>
-
-
-  <!-- CARRITO -->
-  <div id="cartModal" class="modal hidden">
-
-    <div class="modalContent">
-
-      <button class="close" data-close="cartModal">
-        ×
-      </button>
-
-      <h2>Tu pedido</h2>
-
-      <div id="cartItems"></div>
-
-      <button id="invoiceButton">
-        Generar pedido
-      </button>
-
-    </div>
-
-  </div>
-
-
-  <!-- FACTURA -->
-  <div id="invoiceModal" class="modal hidden">
-
-    <div class="modalContent">
-
-      <button class="close" data-close="invoiceModal">
-        ×
-      </button>
-
-      <h2>Resumen del pedido</h2>
-
-      <div id="invoice"></div>
-
-    </div>
-
-  </div>
 
 
   <!-- PIE DE PÁGINA -->
   <footer>
 
-    Dolci | Fábrica de galletas | Calidad que se disfruta ♥️
+    Dolci | Fábrica de galletas |
+    Calidad que se disfruta ♥
 
   </footer>
 
 
+  <!-- VENTANA DE PRODUCTOS -->
+  <div id="modal" class="modal hidden">
+
+    <div class="modal-content">
+
+      <button class="close-modal" data-close="modal">
+        ×
+      </button>
+
+      <h2 id="modalTitle">
+        Productos
+      </h2>
+
+      <div id="productsList">
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- VENTANA DEL CARRITO -->
+  <div id="cartModal" class="modal hidden">
+
+    <div class="modal-content">
+
+      <button class="close-modal" data-close="cartModal">
+        ×
+      </button>
+
+      <h2>
+        🛒 Tu pedido
+      </h2>
+
+      <div id="cartItems">
+
+        <p>
+          Tu carrito está vacío.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- JAVASCRIPT -->
   <script src="app.js"></script>
 
 </body>
