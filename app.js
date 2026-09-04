@@ -1,22 +1,383 @@
-const WA='573155458751';let active='Conos',orderNo=125;const cart={};
-const cats=[['Conos','🍦'],['Galletas','🧇'],['Canastas','🧺'],['Obleas','🥞'],['Barquillos','🥨']];
-const products=[
-{id:'mini',c:'Conos',n:'Cono mini',pr:'Paquete de 10 unidades',p:2500,e:'🍦'},
-{id:'c1',c:'Conos',n:'Cono #1',pr:'Paquete de 10 unidades',p:2600,e:'🍦'},
-{id:'c2',c:'Conos',n:'Cono #2',pr:'Paquete de 10 unidades',p:2800,e:'🍦'},
-{id:'c3',c:'Conos',n:'Cono #3',pr:'Paquete de 10 unidades',p:2900,e:'🍦'},
-{id:'c4',c:'Conos',n:'Cono #4',pr:'Paquete de 10 unidades',p:4600,e:'🍦'},
-{id:'gc',c:'Galletas',n:'Galleta cuadrada',pr:'Paquete de 50 unidades',p:3500,e:'🧇'},
-{id:'cm',c:'Canastas',n:'Canasta mediana',pr:'Paquete de 10 unidades',p:6500,e:'🧺'},
-{id:'ob',c:'Obleas',n:'Obleas',pr:'Paquete',p:0,e:'🥞'},
-{id:'bc',c:'Barquillos',n:'Barquillo corto',pr:'Paquete de 100 unidades',p:9000,e:'🥨'}];
-const $=s=>document.querySelector(s),money=n=>'$ '+Number(n||0).toLocaleString('es-CO'),qty=id=>cart[id]||0,clean=v=>{let d=String(v??'').replace(/\D/g,'');return d?parseInt(d,10):0};
-function renderCats(){ $('#cats').innerHTML=cats.map(x=>`<div class="cat" data-c="${x[0]}"><div class="pic">${x[1]}</div><h3>${x[0]}</h3></div>`).join('');document.querySelectorAll('.cat').forEach(x=>x.onclick=()=>openCat(x.dataset.c)) }
-function openCat(c){active=c;$('#title').textContent=c;renderProducts();$('#modal').classList.remove('hidden')}
-function renderProducts(){let a=products.filter(x=>x.c===active);$('#plist').innerHTML=a.length?a.map(x=>`<div class="product"><div class="phead"><div><h3>${x.e} ${x.n}</h3><div class="presentation">📦 ${x.pr}</div></div><div class="price">${x.p?money(x.p):'Consultar'}</div></div>${x.p?`<div class="qty"><button onclick="change('${x.id}',-1)">−</button><input inputmode="numeric" value="${qty(x.id)}" oninput="typing('${x.id}',this)"><button onclick="change('${x.id}',1)">+</button></div>`:'<p class="presentation">Precio pendiente de registrar.</p>'}</div>`).join(''):'<div class="product">Próximamente</div>'}
-function change(id,d){let n=Math.max(0,qty(id)+d);if(n)cart[id]=n;else delete cart[id];renderProducts();renderCart()}
-function typing(id,el){let n=clean(el.value);el.value=n;if(n)cart[id]=n;else delete cart[id];renderCart()} // 06→6, 045→45, 0008→8
-function entries(){return products.filter(x=>qty(x.id)>0)}function total(){return entries().reduce((s,x)=>s+x.p*qty(x.id),0)}
-function renderCart(){let e=entries();$('#cart').innerHTML=e.length?e.map(x=>`<div class="cartrow"><div><b>${x.e} ${x.n}</b><small>${x.pr}</small></div><div>${qty(x.id)} × ${money(x.p)}</div><b>${money(qty(x.id)*x.p)}</b></div>`).join(''):'<p style="text-align:center">Todavía no has agregado productos.</p>';$('#total').textContent=money(total())}
-function invoice(){let e=entries();if(!e.length)return alert('Agrega al menos un producto.');let name=$('#name').value.trim()||'Cliente',pay=$('#payment').value,date=new Date().toLocaleString('es-CO',{dateStyle:'medium',timeStyle:'short'}),num='#000'+String(orderNo).padStart(3,'0');$('#invoice').innerHTML=`<div class="brand"><div class="logo">🍦</div><h1>Dolci</h1><p>NIT: 1010010981</p><p><b>Teléfono:</b> 315 545 8751</p><p><b>Dirección:</b> Calle 130F #124-58</p><p><b>Correo:</b> 964miguel964@gmail.com</p></div><hr><div class="details"><b>Fecha de transacción</b><span>${date}</span><b>Cliente</b><span>${name}</span><b>Método de pago</b><span>${pay}</span><b>Estado</b><span>${pay==='Pendiente'?'Pendiente de pago':'Pagada'}</span><b>Número de pedido</b><span>${num}</span></div><hr><table><thead><tr><th>Producto</th><th>Cant.</th><th>Presentación</th><th>Precio U.</th><th>Valor</th></tr></thead><tbody>${e.map(x=>`<tr><td>${x.e} ${x.n}</td><td class="num">${qty(x.id)}</td><td>${x.pr.replace('Paquete de ','')}</td><td class="money">${money(x.p)}</td><td class="money">${money(qty(x.id)*x.p)}</td></tr>`).join('')}</tbody></table><div class="invoiceTotal"><span>Total</span><span>${money(total())}</span></div><hr><div class="thanks">— ¡Gracias por su compra! 🤎</div>`;$('#cartModal').classList.add('hidden');$('#invoiceModal').classList.remove('hidden');orderNo++}
-$('#order').onclick=()=>openCat('Conos');$('#viewCart').onclick=()=>{$('#modal').classList.add('hidden');$('#cartModal').classList.remove('hidden');renderCart()};$('#back').onclick=()=>{$('#cartModal').classList.add('hidden');$('#modal').classList.remove('hidden')};$('#wa').onclick=()=>{if(!entries().length)return alert('Agrega al menos un producto.');let name=$('#name').value.trim()||'Cliente',pay=$('#payment').value,lines=entries().map(x=>`• ${x.n}: ${qty(x.id)} ${x.pr} — ${money(qty(x.id)*x.p)}`).join('%0A');window.open(`https://wa.me/${WA}?text=Hola Dolci, quiero realizar el siguiente pedido:%0A%0A*Cliente:* ${encodeURIComponent(name)}%0A*Pago:* ${encodeURIComponent(pay)}%0A%0A${lines}%0A%0A*TOTAL: ${money(total())}*`,'_blank')};$('#invoiceBtn').onclick=invoice;document.querySelectorAll('.close').forEach(b=>b.onclick=()=>{let p=b.dataset.close;if(p)$('#'+p).classList.add('hidden');else $('#modal').classList.add('hidden')});renderCats();renderCart();
+/* ========================================
+   DOLCI
+   FUNCIONAMIENTO DE LA PÁGINA
+======================================== */
+
+
+/* ========================================
+   PRODUCTOS POR CATEGORÍA
+======================================== */
+
+const productos = {
+
+  conos: [
+    "Cono tradicional",
+    "Cono pequeño",
+    "Cono grande"
+  ],
+
+  galletas: [
+    "Galletas tradicionales",
+    "Galletas especiales"
+  ],
+
+  canastas: [
+    "Canasta tradicional",
+    "Canasta especial"
+  ],
+
+  obleas: [
+    "Obleas tradicionales",
+    "Obleas especiales"
+  ],
+
+  barquillos: [
+    "Barquillo tradicional",
+    "Barquillo especial"
+  ]
+
+};
+
+
+/* ========================================
+   NOMBRES DE LAS CATEGORÍAS
+======================================== */
+
+const nombresCategorias = {
+
+  conos: "🍦 Conos",
+
+  galletas: "🧇 Galletas",
+
+  canastas: "🧇 Canastas",
+
+  obleas: "🥞 Obleas",
+
+  barquillos: "🍪 Barquillos"
+
+};
+
+
+/* ========================================
+   ELEMENTOS DE LA PÁGINA
+======================================== */
+
+const modal = document.getElementById("modal");
+
+const modalTitle =
+  document.getElementById("modalTitle");
+
+const productsList =
+  document.getElementById("productsList");
+
+const cartModal =
+  document.getElementById("cartModal");
+
+const cartItems =
+  document.getElementById("cartItems");
+
+const orderButton =
+  document.getElementById("orderButton");
+
+const categoryButtons =
+  document.querySelectorAll(".category-btn");
+
+const closeButtons =
+  document.querySelectorAll(".close-modal");
+
+
+/* ========================================
+   CARRITO
+======================================== */
+
+let carrito = [];
+
+
+/* ========================================
+   ABRIR CATEGORÍA
+======================================== */
+
+categoryButtons.forEach(function (button) {
+
+  button.addEventListener("click", function () {
+
+    const categoria =
+      button.dataset.category;
+
+    abrirCategoria(categoria);
+
+  });
+
+});
+
+
+/* ========================================
+   MOSTRAR PRODUCTOS
+======================================== */
+
+function abrirCategoria(categoria) {
+
+  modalTitle.textContent =
+    nombresCategorias[categoria];
+
+  productsList.innerHTML = "";
+
+  const listaProductos =
+    productos[categoria];
+
+
+  listaProductos.forEach(function (producto) {
+
+    const productoDiv =
+      document.createElement("div");
+
+    productoDiv.style.display = "flex";
+
+    productoDiv.style.justifyContent =
+      "space-between";
+
+    productoDiv.style.alignItems =
+      "center";
+
+    productoDiv.style.gap =
+      "10px";
+
+    productoDiv.style.padding =
+      "14px";
+
+    productoDiv.style.marginBottom =
+      "10px";
+
+    productoDiv.style.border =
+      "1px solid #d8c7b5";
+
+    productoDiv.style.borderRadius =
+      "10px";
+
+    productoDiv.style.background =
+      "#fffdf7";
+
+
+    const nombreProducto =
+      document.createElement("span");
+
+    nombreProducto.textContent =
+      producto;
+
+
+    const agregarBoton =
+      document.createElement("button");
+
+    agregarBoton.textContent =
+      "Agregar";
+
+    agregarBoton.style.border =
+      "none";
+
+    agregarBoton.style.borderRadius =
+      "20px";
+
+    agregarBoton.style.padding =
+      "8px 14px";
+
+    agregarBoton.style.background =
+      "#7a3d1d";
+
+    agregarBoton.style.color =
+      "white";
+
+    agregarBoton.style.cursor =
+      "pointer";
+
+
+    agregarBoton.addEventListener(
+      "click",
+      function () {
+
+        agregarAlCarrito(producto);
+
+      }
+    );
+
+
+    productoDiv.appendChild(
+      nombreProducto
+    );
+
+    productoDiv.appendChild(
+      agregarBoton
+    );
+
+
+    productsList.appendChild(
+      productoDiv
+    );
+
+  });
+
+
+  modal.classList.remove(
+    "hidden"
+  );
+
+}
+
+
+/* ========================================
+   AGREGAR AL CARRITO
+======================================== */
+
+function agregarAlCarrito(producto) {
+
+  carrito.push(producto);
+
+  alert(
+    producto +
+    " fue agregado a tu pedido."
+  );
+
+}
+
+
+/* ========================================
+   BOTÓN HACER PEDIDO
+======================================== */
+
+orderButton.addEventListener(
+  "click",
+  function () {
+
+    abrirCarrito();
+
+  }
+);
+
+
+/* ========================================
+   MOSTRAR CARRITO
+======================================== */
+
+function abrirCarrito() {
+
+  cartItems.innerHTML = "";
+
+
+  /* SI EL CARRITO ESTÁ VACÍO */
+
+  if (carrito.length === 0) {
+
+    const mensaje =
+      document.createElement("p");
+
+    mensaje.textContent =
+      "Tu carrito está vacío.";
+
+    mensaje.style.textAlign =
+      "center";
+
+    mensaje.style.padding =
+      "20px";
+
+    cartItems.appendChild(
+      mensaje
+    );
+
+  }
+
+
+  /* SI HAY PRODUCTOS */
+
+  else {
+
+    carrito.forEach(
+      function (
+        producto,
+        indice
+      ) {
+
+        const productoDiv =
+          document.createElement(
+            "div"
+          );
+
+        productoDiv.style.display =
+          "flex";
+
+        productoDiv.style.justifyContent =
+          "space-between";
+
+        productoDiv.style.alignItems =
+          "center";
+
+        productoDiv.style.padding =
+          "12px";
+
+        productoDiv.style.marginBottom =
+          "8px";
+
+        productoDiv.style.borderBottom =
+          "1px solid #ddd";
+
+
+        const nombre =
+          document.createElement(
+            "span"
+          );
+
+        nombre.textContent =
+          producto;
+
+
+        const eliminar =
+          document.createElement(
+            "button"
+          );
+
+        eliminar.textContent =
+          "✕";
+
+        eliminar.style.border =
+          "none";
+
+        eliminar.style.background =
+          "transparent";
+
+        eliminar.style.fontSize =
+          "20px";
+
+        eliminar.style.cursor =
+          "pointer";
+
+
+        eliminar.addEventListener(
+          "click",
+          function () {
+
+            eliminarDelCarrito(
+              indice
+            );
+
+          }
+        );
+
+
+        productoDiv.appendChild(
+          nombre
+        );
+
+        productoDiv.appendChild(
+          eliminar
+        );
+
+
+        cartItems.appendChild(
+          productoDiv
+        );
+
+      }
+    );
+
+
+    /* BOTÓN WHATSAPP */
+
+   
