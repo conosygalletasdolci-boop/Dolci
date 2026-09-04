@@ -1,8 +1,236 @@
-content="width=device-width,initial-scale=1"><title>Dolci | Pedidos</title><link rel="stylesheet" href="style.css"></head><body>
-<header class="hero"><div class="side">🍦<br>🍦<br>🧇</div><div class="center"><div class="seal"><small>FÁBRICA DE GALLETAS</small><div>🍦🍦🍦</div><b>DOLCI</b><small>SUBA CAÑIZA</small></div><h1>Dolci</h1><p>Conos, galletas y más<br>para tus mejores momentos</p></div><div class="right"><em>El sabor<br>que hace<br>tus momentos<br>más especiales<br>♡</em></div></header>
-<section class="benefits"><div>🚚<p>Pedidos<br>rápidos</p></div><div>🛡️<p>Productos<br>de calidad</p></div><div>♡<p>Hechos<br>con pasión</p></div><div>👥<p>Atención<br>personalizada</p></div></section>
-<main><h2>Nuestras categorías</h2><p class="subtitle">Selecciona una categoría para ver nuestros productos</p><div id="cats" class="cats"></div><button id="order" class="order">🛒 HACER UN PEDIDO →</button>
-<section class="info"><div>🟢<p>También puedes hacer tu pedido<br>por WhatsApp<br><b>315 545 8751</b></p></div><div>◷<p><b>Horario de atención</b><br>Lunes a Sábado<br>8:00 a. m. - 6:00 p. m.</p></div><div>📍<p><b>Suba Cañiza</b><br>Calle 130F #124-58<br>Bogotá, Colombia</p></div></section></main><footer>Dolci | Fábrica de galletas | Calidad que se disfruta ♥</footer>
-<div id="modal" class="modal hidden"><div class="box"><button class="close">×</button><h2 id="title"></h2><p class="subtitle">Selecciona la cantidad de paquetes</p><div id="plist"></div><button id="viewCart" class="order small">🛒 VER MI PEDIDO →</button></div></div>
-<div id="cartModal" class="modal hidden"><div class="box"><button class="close" data-close="cartModal">×</button><button id="back" class="back">← Seguir comprando</button><h2>🛒 Mi pedido</h2><div id="cart"></div><div class="total">Total <b id="total"></b></div><label>Nombre del cliente</label><input id="name" placeholder="Escribe tu nombre"><label>Método de pago</label><select id="payment"><option>Pendiente</option><option>Efectivo</option><option>Transferencia</option></select><button id="wa" class="wa">🟢 ENVIAR PEDIDO A WHATSAPP</button><button id="invoiceBtn" class="invoiceBtn">🧾 VER FACTURA</button></div></div>
-<div id="invoiceModal
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <title>Dolci | Fábrica de galletas</title>
+</head>
+
+<body>
+
+  <!-- ENCABEZADO PRINCIPAL -->
+  <header class="hero">
+
+    <div class="side">
+      🍦
+    </div>
+
+    <div class="seal">
+      <small>FÁBRICA DE GALLETAS</small>
+
+      <div class="cones">
+        🍦 🍦 🍦
+      </div>
+
+      <h1>DOLCI</h1>
+
+      <small>SUBA CAÑIZA</small>
+    </div>
+
+    <div class="heroText">
+      <h1>Dolci</h1>
+
+      <p>
+        Conos, galletas y más<br>
+        para tus mejores momentos
+      </p>
+    </div>
+
+    <div class="phrase">
+      El sabor<br>
+      que hace<br>
+      tus momentos<br>
+      más especiales
+      <br>
+      ♡
+    </div>
+
+  </header>
+
+
+  <!-- BENEFICIOS -->
+  <section class="benefits">
+
+    <div>
+      🚚
+      <p>Pedidos<br>rápidos</p>
+    </div>
+
+    <div>
+      🛡️
+      <p>Productos<br>de calidad</p>
+    </div>
+
+    <div>
+      ♡
+      <p>Hechos<br>con pasión</p>
+    </div>
+
+    <div>
+      👥
+      <p>Atención<br>personalizada</p>
+    </div>
+
+  </section>
+
+
+  <!-- CATEGORÍAS -->
+  <main>
+
+    <h2>Nuestras categorías</h2>
+
+    <p class="subtitle">
+      Selecciona una categoría para ver nuestros productos
+    </p>
+
+
+    <div class="categories" id="categories">
+
+      <button class="category" data-category="Conos">
+        <div class="categoryImage">🍦</div>
+        <span>Conos</span>
+      </button>
+
+      <button class="category" data-category="Galletas">
+        <div class="categoryImage">🧇</div>
+        <span>Galletas</span>
+      </button>
+
+      <button class="category" data-category="Canastas">
+        <div class="categoryImage">🧇</div>
+        <span>Canastas</span>
+      </button>
+
+      <button class="category" data-category="Obleas">
+        <div class="categoryImage">🥞</div>
+        <span>Obleas</span>
+      </button>
+
+      <button class="category" data-category="Barquillos">
+        <div class="categoryImage">🍪</div>
+        <span>Barquillos</span>
+      </button>
+
+    </div>
+
+
+    <!-- BOTÓN PEDIDO -->
+    <button id="orderButton" class="orderButton">
+      🛒 HACER UN PEDIDO →
+    </button>
+
+  </main>
+
+
+  <!-- INFORMACIÓN -->
+  <section class="info">
+
+    <div>
+      🟢
+      <p>
+        También puedes hacer tu pedido<br>
+        por WhatsApp<br>
+        <b>315 545 8751</b>
+      </p>
+    </div>
+
+
+    <div>
+      ◷
+      <p>
+        <b>Horario de atención</b><br>
+        Lunes a Sábado<br>
+        8:00 a. m. - 6:00 p. m.
+      </p>
+    </div>
+
+
+    <div>
+      📍
+      <p>
+        <b>Suba Cañiza</b><br>
+        Calle 130F #124-58<br>
+        Bogotá, Colombia
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- MODAL PRODUCTOS -->
+  <div id="modal" class="modal hidden">
+
+    <div class="modalContent">
+
+      <button class="close" data-close="modal">
+        ×
+      </button>
+
+      <h2 id="title">
+        Productos
+      </h2>
+
+      <div id="products"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CARRITO -->
+  <div id="cartModal" class="modal hidden">
+
+    <div class="modalContent">
+
+      <button class="close" data-close="cartModal">
+        ×
+      </button>
+
+      <h2>Tu pedido</h2>
+
+      <div id="cartItems"></div>
+
+      <button id="invoiceButton">
+        Generar pedido
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- FACTURA -->
+  <div id="invoiceModal" class="modal hidden">
+
+    <div class="modalContent">
+
+      <button class="close" data-close="invoiceModal">
+        ×
+      </button>
+
+      <h2>Resumen del pedido</h2>
+
+      <div id="invoice"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+
+    Dolci | Fábrica de galletas | Calidad que se disfruta ♥️
+
+  </footer>
+
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
