@@ -2,300 +2,334 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+    <!-- MUY IMPORTANTE PARA QUE SE VEA BIEN EN CELULAR -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Dolci | Fábrica de Galletas</title>
+    <title>Dolci | Fábrica de Galletas</title>
 
-  <link rel="stylesheet" href="style.css">
+    <!-- FUENTE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body>
 
-  <!-- ENCABEZADO PRINCIPAL -->
-  <header class="hero">
-
-    <!-- Decoración izquierda -->
-    <div class="hero-side left-side">
-      <div class="cone-image">
-        🍦
-      </div>
-    </div>
 
-    <!-- Contenido central -->
-    <div class="hero-center">
+    <!-- ================================================= -->
+    <!-- CONTENEDOR PRINCIPAL -->
+    <!-- ================================================= -->
 
-      <div class="logo">
-        <div class="logo-top">
-          FÁBRICA DE GALLETAS
-        </div>
+    <div class="pagina">
 
-        <div class="logo-icecream">
-          🍦 🍦 🍦
-        </div>
 
-        <div class="logo-name">
-          DOLCI
-        </div>
+        <!-- ================================================= -->
+        <!-- HERO / PARTE SUPERIOR -->
+        <!-- ================================================= -->
 
-        <div class="logo-bottom">
-          SUBA CAÑIZA
-        </div>
-      </div>
+        <header class="hero">
 
-      <h1>Dolci</h1>
 
-      <p class="subtitle">
-        Conos, galletas y más<br>
-        para tus mejores momentos
-      </p>
+            <!-- DECORACIÓN CON PRODUCTOS -->
+            <div class="decoracion decoracion-izquierda">
 
-    </div>
+                <img
+                    src="images/conos-fondo-izquierda.png"
+                    alt="Conos de galleta">
 
-    <!-- Frase derecha -->
-    <div class="hero-side right-side">
+            </div>
 
-      <p class="slogan">
-        El sabor<br>
-        que hace<br>
-        tus momentos<br>
-        más especiales
-      </p>
 
-      <div class="heart">
-        ♡
-      </div>
+            <div class="decoracion decoracion-derecha">
 
-    </div>
+                <img
+                    src="images/conos-fondo-derecha.png"
+                    alt="Productos Dolci">
 
-  </header>
+            </div>
 
 
-  <!-- BENEFICIOS -->
-  <section class="benefits">
+            <!-- CONTENIDO CENTRAL -->
 
-    <div class="benefit">
-      <div class="benefit-icon">🚚</div>
-      <p>
-        Pedidos<br>
-        rápidos
-      </p>
-    </div>
+            <div class="hero-contenido">
 
-    <div class="benefit">
-      <div class="benefit-icon">🛡️</div>
-      <p>
-        Productos<br>
-        de calidad
-      </p>
-    </div>
 
-    <div class="benefit">
-      <div class="benefit-icon">♡</div>
-      <p>
-        Hechos<br>
-        con pasión
-      </p>
-    </div>
+                <!-- LOGO -->
 
-    <div class="benefit">
-      <div class="benefit-icon">👥</div>
-      <p>
-        Atención<br>
-        personalizada
-      </p>
-    </div>
+                <div class="logo-contenedor">
 
-  </section>
+                    <img
+                        class="logo-principal"
+                        src="images/logo-dolci.png"
+                        alt="Dolci Fábrica de Galletas">
 
+                </div>
 
-  <!-- CATEGORÍAS -->
-  <main>
 
-    <section class="categories-section">
+                <!-- FRASE DERECHA -->
 
-      <h2>Nuestras categorías</h2>
+                <div class="frase-principal">
 
-      <p class="categories-subtitle">
-        Selecciona una categoría para ver nuestros productos
-      </p>
+                    <p>
+                        El sabor<br>
+                        que hace<br>
+                        tus momentos<br>
+                        más especiales
+                    </p>
 
+                    <div class="corazon">
+                        ♡
+                    </div>
 
-      <div class="categories">
+                </div>
 
-        <button class="category-btn" data-category="conos">
-          <span class="category-icon">🍦</span>
-          <span>Conos</span>
-        </button>
 
+                <!-- NOMBRE -->
 
-        <button class="category-btn" data-category="galletas">
-          <span class="category-icon">🧇</span>
-          <span>Galletas</span>
-        </button>
+                <div class="marca">
 
+                    <h1>Dolci</h1>
 
-        <button class="category-btn" data-category="canastas">
-          <span class="category-icon">🧇</span>
-          <span>Canastas</span>
-        </button>
+                    <p>
+                        Conos, galletas y más<br>
+                        para tus mejores momentos
+                    </p>
 
+                </div>
 
-        <button class="category-btn" data-category="obleas">
-          <span class="category-icon">🥞</span>
-          <span>Obleas</span>
-        </button>
 
+            </div>
 
-        <button class="category-btn" data-category="barquillos">
-          <span class="category-icon">🍪</span>
-          <span>Barquillos</span>
-        </button>
+        </header>
 
-      </div>
 
 
-      <button class="order-button" id="orderButton">
-        🛒 HACER UN PEDIDO →
-      </button>
+        <!-- ================================================= -->
+        <!-- BENEFICIOS -->
+        <!-- ================================================= -->
 
-    </section>
+        <section class="beneficios">
 
 
-    <!-- INFORMACIÓN -->
-    <section class="info-section">
+            <div class="beneficio">
 
+                <div class="beneficio-icono">
+                    🚚
+                </div>
 
-      <div class="info-card whatsapp-card">
+                <p>
+                    Pedidos<br>
+                    rápidos
+                </p>
 
-        <div class="info-icon whatsapp-icon"></div>
+            </div>
 
-        <div>
-          <p>También puedes hacer tu pedido</p>
 
-          <p class="info-main">
-            por WhatsApp
-          </p>
 
-          <strong>
-            315 545 8751
-          </strong>
-        </div>
+            <div class="beneficio">
 
-      </div>
+                <div class="beneficio-icono">
+                    🛡️
+                </div>
 
+                <p>
+                    Productos<br>
+                    de calidad
+                </p>
 
-      <div class="info-card">
+            </div>
 
-        <div class="info-symbol">
-          ◷
-        </div>
 
-        <div>
-          <h3>Horario de atención</h3>
 
-          <p>
-            Lunes a Sábado
-          </p>
+            <div class="beneficio">
 
-          <p>
-            8:00 a. m. - 6:00 p. m.
-          </p>
-        </div>
+                <div class="beneficio-icono">
+                    ♡
+                </div>
 
-      </div>
+                <p>
+                    Hechos<br>
+                    con pasión
+                </p>
 
+            </div>
 
-      <div class="info-card">
 
-        <div class="info-symbol">
-          📍
-        </div>
 
-        <div>
-          <h3>Suba Cañiza</h3>
+            <div class="beneficio">
 
-          <p>
-            Calle 130F #124-58
-          </p>
+                <div class="beneficio-icono">
+                    👥
+                </div>
 
-          <p>
-            Bogotá, Colombia
-          </p>
-        </div>
+                <p>
+                    Atención<br>
+                    personalizada
+                </p>
 
-      </div>
+            </div>
 
 
-    </section>
+        </section>
 
-  </main>
 
 
-  <!-- PIE DE PÁGINA -->
-  <footer>
+        <!-- ================================================= -->
+        <!-- CATEGORÍAS -->
+        <!-- ================================================= -->
 
-    Dolci | Fábrica de galletas |
-    Calidad que se disfruta ♥
+        <main class="contenido">
 
-  </footer>
 
+            <section class="categorias">
 
-  <!-- VENTANA DE PRODUCTOS -->
-  <div id="modal" class="modal hidden">
 
-    <div class="modal-content">
+                <!-- TÍTULO -->
 
-      <button class="close-modal" data-close="modal">
-        ×
-      </button>
+                <div class="titulo-categorias">
 
-      <h2 id="modalTitle">
-        Productos
-      </h2>
+                    <h2>
+                        Nuestras categorías
+                    </h2>
 
-      <div id="productsList">
+                    <p>
+                        Selecciona una categoría para ver nuestros productos
+                    </p>
 
-      </div>
+                </div>
 
-    </div>
 
-  </div>
 
+                <!-- TARJETAS -->
 
-  <!-- VENTANA DEL CARRITO -->
-  <div id="cartModal" class="modal hidden">
+                <div class="categorias-grid">
 
-    <div class="modal-content">
 
-      <button class="close-modal" data-close="cartModal">
-        ×
-      </button>
+                    <!-- CONOS -->
 
-      <h2>
-        🛒 Tu pedido
-      </h2>
+                    <button
+                        class="categoria"
+                        data-categoria="conos">
 
-      <div id="cartItems">
+                        <div class="categoria-imagen">
 
-        <p>
-          Tu carrito está vacío.
-        </p>
+                            <img
+                                src="images/conos.jpg"
+                                alt="Conos">
 
-      </div>
+                        </div>
 
-    </div>
+                        <div class="categoria-nombre">
+                            Conos
+                        </div>
 
-  </div>
+                    </button>
 
 
-  <!-- JAVASCRIPT -->
-  <script src="app.js"></script>
 
-</body>
+                    <!-- GALLETAS -->
 
-</html>
+                    <button
+                        class="categoria"
+                        data-categoria="galletas">
+
+                        <div class="categoria-imagen">
+
+                            <img
+                                src="images/galletas.jpg"
+                                alt="Galletas">
+
+                        </div>
+
+                        <div class="categoria-nombre">
+                            Galletas
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- CANASTAS -->
+
+                    <button
+                        class="categoria"
+                        data-categoria="canastas">
+
+                        <div class="categoria-imagen">
+
+                            <img
+                                src="images/canastas.jpg"
+                                alt="Canastas">
+
+                        </div>
+
+                        <div class="categoria-nombre">
+                            Canastas
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- OBLEAS -->
+
+                    <button
+                        class="categoria"
+                        data-categoria="obleas">
+
+                        <div class="categoria-imagen">
+
+                            <img
+                                src="images/obleas.jpg"
+                                alt="Obleas">
+
+                        </div>
+
+                        <div class="categoria-nombre">
+                            Obleas
+                        </div>
+
+                    </button>
+
+
+
+                    <!-- BARQUILLOS -->
+
+                    <button
+                        class="categoria"
+                        data-categoria="barquillos">
+
+                        <div class="categoria-imagen">
+
+                            <img
+                                src="images/barquillos.jpg"
+                                alt="Barquillos">
+
+                        </div>
+
+                        <div class="categoria-nombre">
+                            Barquillos
+                        </div>
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- BOTÓN HACER PEDIDO -->
+
+                <button
+                    class="boton-pedido"
+                    id="abrirPedido">
+
+                    <span class="carrito">
+                        🛒
