@@ -4,53 +4,59 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- MUY IMPORTANTE PARA QUE SE VEA BIEN EN CELULAR -->
+    <!-- PARA QUE FUNCIONE BIEN EN CELULAR -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Dolci | Fábrica de Galletas</title>
 
-    <!-- FUENTE -->
+    <!-- FUENTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 
 <body>
 
 
-    <!-- ================================================= -->
-    <!-- CONTENEDOR PRINCIPAL -->
-    <!-- ================================================= -->
+    <!-- ============================================== -->
+    <!-- PÁGINA PRINCIPAL -->
+    <!-- ============================================== -->
 
     <div class="pagina">
 
 
-        <!-- ================================================= -->
+        <!-- ============================================== -->
         <!-- HERO / PARTE SUPERIOR -->
-        <!-- ================================================= -->
+        <!-- ============================================== -->
 
         <header class="hero">
 
 
-            <!-- DECORACIÓN CON PRODUCTOS -->
+            <!-- IMAGEN DECORATIVA IZQUIERDA -->
+
             <div class="decoracion decoracion-izquierda">
 
                 <img
-                    src="images/conos-fondo-izquierda.png"
+                    src="images/hero-conos-izquierda.jpg"
                     alt="Conos de galleta">
 
             </div>
 
 
+            <!-- IMAGEN DECORATIVA DERECHA -->
+
             <div class="decoracion decoracion-derecha">
 
                 <img
-                    src="images/conos-fondo-derecha.png"
+                    src="images/hero-conos-derecha.jpg"
                     alt="Productos Dolci">
 
             </div>
@@ -67,13 +73,13 @@
 
                     <img
                         class="logo-principal"
-                        src="images/logo-dolci.png"
+                        src="images/logo-dolci.jpg"
                         alt="Dolci Fábrica de Galletas">
 
                 </div>
 
 
-                <!-- FRASE DERECHA -->
+                <!-- FRASE -->
 
                 <div class="frase-principal">
 
@@ -107,13 +113,14 @@
 
             </div>
 
+
         </header>
 
 
 
-        <!-- ================================================= -->
+        <!-- ============================================== -->
         <!-- BENEFICIOS -->
-        <!-- ================================================= -->
+        <!-- ============================================== -->
 
         <section class="beneficios">
 
@@ -132,7 +139,6 @@
             </div>
 
 
-
             <div class="beneficio">
 
                 <div class="beneficio-icono">
@@ -147,7 +153,6 @@
             </div>
 
 
-
             <div class="beneficio">
 
                 <div class="beneficio-icono">
@@ -160,7 +165,6 @@
                 </p>
 
             </div>
-
 
 
             <div class="beneficio">
@@ -181,12 +185,16 @@
 
 
 
-        <!-- ================================================= -->
-        <!-- CATEGORÍAS -->
-        <!-- ================================================= -->
+        <!-- ============================================== -->
+        <!-- CONTENIDO PRINCIPAL -->
+        <!-- ============================================== -->
 
         <main class="contenido">
 
+
+            <!-- ============================================== -->
+            <!-- CATEGORÍAS -->
+            <!-- ============================================== -->
 
             <section class="categorias">
 
@@ -207,7 +215,7 @@
 
 
 
-                <!-- TARJETAS -->
+                <!-- TARJETAS DE CATEGORÍAS -->
 
                 <div class="categorias-grid">
 
@@ -325,7 +333,9 @@
 
 
 
+                <!-- ============================================== -->
                 <!-- BOTÓN HACER PEDIDO -->
+                <!-- ============================================== -->
 
                 <button
                     class="boton-pedido"
@@ -333,4 +343,181 @@
 
                     <span class="carrito">
                         🛒
-                        
+                    </span>
+
+                    <span>
+                        Hacer pedido
+                    </span>
+
+                </button>
+
+
+            </section>
+
+
+            <!-- ============================================== -->
+            <!-- ÁREA DE PRODUCTOS -->
+            <!-- ============================================== -->
+
+            <section
+                class="productos"
+                id="productos">
+
+
+                <div class="productos-titulo">
+
+                    <h2 id="tituloProductos">
+                        Nuestros productos
+                    </h2>
+
+                    <p id="descripcionProductos">
+
+                        Selecciona una categoría para ver
+                        nuestros productos disponibles.
+
+                    </p>
+
+                </div>
+
+
+                <!-- AQUÍ JAVASCRIPT COLOCA LOS PRODUCTOS -->
+
+                <div
+                    class="productos-grid"
+                    id="productosGrid">
+
+                </div>
+
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- ============================================== -->
+        <!-- PIE DE PÁGINA -->
+        <!-- ============================================== -->
+
+        <footer class="footer">
+
+
+            <div class="footer-logo">
+
+                <img
+                    src="images/logo-dolci.jpg"
+                    alt="Dolci">
+
+            </div>
+
+
+            <p>
+                Dolci · Fábrica de Galletas
+            </p>
+
+
+            <p class="footer-texto">
+
+                Conos, galletas y productos especiales
+                para acompañar tus mejores momentos.
+
+            </p>
+
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- ============================================== -->
+    <!-- VENTANA DE PEDIDO -->
+    <!-- ============================================== -->
+
+    <div
+        class="modal"
+        id="modalPedido">
+
+
+        <div class="modal-contenido">
+
+
+            <!-- BOTÓN CERRAR -->
+
+            <button
+                class="cerrar-modal"
+                id="cerrarPedido"
+                aria-label="Cerrar">
+
+                ×
+
+            </button>
+
+
+            <!-- TÍTULO -->
+
+            <h2>
+                Tu pedido
+            </h2>
+
+
+            <!-- PRODUCTOS DEL PEDIDO -->
+
+            <div
+                class="pedido-productos"
+                id="pedidoProductos">
+
+
+                <p class="pedido-vacio">
+
+                    Aún no has agregado productos.
+
+                </p>
+
+
+            </div>
+
+
+            <!-- TOTAL -->
+
+            <div class="pedido-total">
+
+                <span>
+                    Total:
+                </span>
+
+                <strong id="totalPedido">
+                    $0
+                </strong>
+
+            </div>
+
+
+            <!-- BOTÓN WHATSAPP -->
+
+            <button
+                class="boton-whatsapp"
+                id="enviarPedido">
+
+                Enviar pedido por WhatsApp
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="app.js"></script>
+
+
+</body>
+
+    </html>
