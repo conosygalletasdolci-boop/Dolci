@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#4a210f">
+  <title>Dolci | Fábrica de Galletas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="app">
+
+    <!-- ================= HOME ================= -->
+    <section id="homeView" class="view active">
+      <header class="home-hero">
+        <img class="hero-product hero-left" src="images/hero-left.jpg" alt="">
+        <img class="hero-product hero-right" src="images/hero-right.jpg" alt="">
+
+        <div class="hero-center">
+          <img class="main-logo" src="images/logo-dolci.jpg" alt="Dolci Fábrica de Galletas">
+
+          <div class="hero-slogan">
+            <span>El sabor</span>
+            <span>que hace</span>
+            <span>tus momentos</span>
+            <span>más especiales</span>
+            <b>♡</b>
+          </div>
+
+          <h1>Dolci</h1>
+          <p>Conos, galletas y más<br>para tus mejores momentos</p>
+        </div>
+      </header>
+
+      <section class="benefits">
+        <div class="benefit"><div class="benefit-icon">🚚</div><strong>Pedidos<br>rápidos</strong></div>
+        <div class="benefit"><div class="benefit-icon">🛡</div><strong>Productos<br>de calidad</strong></div>
+        <div class="benefit"><div class="benefit-icon">♡</div><strong>Hechos<br>con pasión</strong></div>
+        <div class="benefit"><div class="benefit-icon">👥</div><strong>Atención<br>personalizada</strong></div>
+      </section>
+
+      <main class="home-content">
+        <section class="category-section">
+          <h2>Nuestras categorías</h2>
+          <p class="section-subtitle">Selecciona una categoría para ver nuestros productos</p>
+
+          <div id="homeCategories" class="home-categories"></div>
+
+          <button id="homeCartButton" class="big-order-button">
+            <span>🛒</span> HACER UN PEDIDO <span>→</span>
+          </button>
+        </section>
+
+        <section class="contact-strip">
+          <div>
+            <span class="contact-icon whatsapp">☎</span>
+            <div><b>También puedes hacer tu pedido por WhatsApp</b><strong>315 545 8751</strong></div>
+          </div>
+          <div>
+            <span class="contact-icon">◷</span>
+            <div><b>Horario de atención</b><span>Lunes a Sábado<br>8:00 a. m. - 6:00 p. m.</span></div>
+          </div>
+          <div>
+            <span class="contact-icon">●</span>
+            <div><b>Suba Cañiza</b><span>Calle 130F #124-58<br>Bogotá, Colombia</span></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">Dolci &nbsp;|&nbsp; Fábrica de galletas &nbsp;|&nbsp; Calidad que se disfruta &nbsp; ♥</footer>
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+    <section id="productsView" class="view">
+      <header class="products-header">
+        <button id="backHome" class="back-button">← <span>Volver</span></button>
+        <img src="images/logo-dolci.jpg" class="products-logo" alt="Dolci">
+        <button id="openCartTop" class="top-cart">
+          <span class="cart-symbol">🛒</span>
+          <span>Ver pedido</span>
+          <b id="topCartCount">0</b>
+        </button>
+      </header>
+
+      <div class="products-hero">
+        <div class="products-slogan">El sabor<br>que hace tus<br>momentos más<br>especiales ♡</div>
+        <img src="images/hero-right.jpg" alt="" class="products-decoration">
+        <div class="category-heading">
+          <img id="selectedCategoryImage" src="images/conos.jpg" alt="">
+          <div>
+            <h1 id="selectedCategoryName">Conos</h1>
+            <p id="selectedCategoryDescription">Crujientes, deliciosos y de la mejor calidad</p>
+          </div>
+        </div>
+      </div>
+
+      <nav id="categoryNav" class="category-nav"></nav>
+
+      <main class="product-area">
+        <div id="productGrid" class="product-grid"></div>
+      </main>
+
+      <button id="openCartBottom" class="bottom-cart">
+        <span class="bottom-cart-icon">🛒</span>
+        <span class="bottom-cart-title">Ver mi pedido</span>
+        <span class="bottom-cart-total"><small id="bottomCartItems">0 productos</small><b id="bottomCartTotal">$ 0</b></span>
+        <span class="bottom-cart-arrow">→</span>
+      </button>
+
+      <nav class="mobile-nav">
+        <button data-nav="home">⌂<span>Inicio</span></button>
+        <button class="selected">▦<span>Productos</span></button>
+        <button id="mobileCartNav">🛒<span>Pedido</span><b id="mobileNavCount">0</b></button>
+        <button>▤<span>Mis pedidos</span></button>
+        <button>⚙<span>Más</span></button>
+      </nav>
+    </section>
+
+
+    <!-- ================= CART ================= -->
+    <div id="cartModal" class="modal">
+      <div class="modal-card cart-card">
+        <button class="modal-close" data-close="cartModal">×</button>
+        <h2>Mi pedido</h2>
+        <p class="modal-subtitle">Revisa las cantidades antes de continuar.</p>
+
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="cart-summary">
+          <span>Total</span>
+          <strong id="cartTotal">$ 0</strong>
+        </div>
+
+        <button id="continueOrder" class="primary-button">CONTINUAR CON EL PEDIDO →</button>
+      </div>
+    </div>
+
+
+    <!-- ================= ORDER FORM ================= -->
+    <div id="orderModal" class="modal">
+      <div class="modal-card order-card">
+        <button class="modal-close" data-close="orderModal">×</button>
+        <h2>Datos del pedido</h2>
+        <p class="modal-subtitle">Necesitamos estos datos para preparar tu pedido.</p>
+
+        <form id="orderForm">
+          <label>Nombre completo
+            <input id="customerName" required maxlength="80" placeholder="Tu nombre">
+          </label>
+
+          <label>Teléfono / WhatsApp
+            <input id="customerPhone" required inputmode="tel" maxlength="20" placeholder="Ej. 315 545 8751">
+          </label>
+
+          <label>Dirección de entrega
+            <input id="customerAddress" required maxlength="140" placeholder="Dirección">
+          </label>
+
+          <label>Método de pago
+            <select id="paymentMethod" required>
+              <option value="">Selecciona...</option>
+              <option>Transferencia</option>
+              <option>Nequi</option>
+              <option>Daviplata</option>
+              <option>Efectivo</option>
+              <option>Pendiente</option>
+            </select>
+          </label>
+
+          <label>Observaciones
+            <textarea id="customerNotes" maxlength="300" placeholder="Observaciones del pedido (opcional)"></textarea>
+          </label>
+
+          <div class="form-total">
+            <span>Total del pedido</span>
+            <strong id="formTotal">$ 0</strong>
+          </div>
+
+          <button type="submit" class="primary-button">REGISTRAR PEDIDO</button>
+        </form>
+      </div>
+    </div>
+
+
+    <!-- ================= INVOICE ================= -->
+    <div id="invoiceModal" class="modal">
+      <div class="modal-card invoice-modal-card">
+        <button class="modal-close" data-close="invoiceModal">×</button>
+
+        <div id="invoice" class="invoice">
+          <div class="invoice-brand">
+            <img src="images/logo-dolci.jpg" alt="Dolci">
+            <h1>Dolci</h1>
+            <p>NIT: 1010010981</p>
+            <p>Teléfono: 315 545 8751</p>
+            <p>Dirección: Calle 130F #124-58</p>
+            <p>Correo: 964miguel964@gmail.com</p>
+          </div>
+
+          <hr>
+
+          <div class="invoice-info">
+            <div><b>Fecha de transacción</b><span id="invoiceDate"></span></div>
+            <div><b>Cliente</b><span id="invoiceCustomer"></span></div>
+            <div><b>Método de pago</b><span id="invoicePayment"></span></div>
+            <div><b>Estado</b><span>Pendiente de pago</span></div>
+            <div><b>Número de pedido</b><span id="invoiceNumber"></span></div>
+          </div>
+
+          <hr>
+
+          <div class="invoice-table">
+            <div class="invoice-row invoice-head"><b>Producto</b><b>Cant.</b><b>Presentación</b><b>Precio U.</b><b>Valor</b></div>
+            <div id="invoiceRows"></div>
+          </div>
+
+          <div class="invoice-total">
+            <b>Total</b><strong id="invoiceTotal">$ 0</strong>
+          </div>
+
+          <p class="thanks">— &nbsp; ¡Gracias por su compra! &nbsp; ♥</p>
+        </div>
+
+        <div class="invoice-actions">
+          <button id="shareInvoice" class="secondary-button">COMPARTIR FACTURA</button>
+          <button id="sendWhatsApp" class="primary-button">ENVIAR PEDIDO POR WHATSAPP</button>
+          <button id="printInvoice" class="secondary-button">IMPRIMIR / GUARDAR PDF</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
